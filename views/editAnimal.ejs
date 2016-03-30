@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Animals World</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  	<div class="container">
+  		<div class="row">
+      <div>
+  	  	<a href="/"><button class="btn btn-default">Back</button></a>
+        
+      </div>
+        <h3 class="text-center text-primary"><%=animal[0].name%></h3>
+         <form  role="form" action="/animals/<%=animal[0].id%>" method="post">
+            <div class="form-group">
+            <label for="name">Name:</label>
+              <input type="text" name='name' class="form-control" id="name" value="<%=animal[0].name%>">
+            </div>
+            <div class="form-group">
+              <label for="weight">Weight:</label>
+              <input id="weight" type="number" name="weight" class="form-control"value="<%=animal[0].weight%>"></input>
+            </div>
+            <div class="form-group">
+              <label for="color">Color:</label>
+              <input id="color" name="color" type="text" class="form-control" value="<%=animal[0].color%>"></input>
+            </div>
+            <button type="submit" class="btn btn-warning">Edit</button>
+          </form>
+      </div>
+  	</div>
+  </body>
+ </html>

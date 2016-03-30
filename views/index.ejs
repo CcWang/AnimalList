@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Animals World</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  	<div class="container">
+  		<div class="row">
+  			<h3 class="text-center text-primary">Welcome to Animal World</h3>
+  			<table class="table">
+  				<thead>
+  					<tr>
+  						<th>Animal Name</th>
+  						<th>Show</th>
+  						<th>Edit</th>
+  						<th>Destory</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+		  			<% if (typeof(animals) != 'undefined') {%>
+		  				<% for (var animal in animals) {%>
+		  				<tr>
+				  			<td><h4 class="text-success"><%=animals[animal].name%></h4></td>
+				  			<td>
+					  			<form action="/animals/<%=animals[animal].id%>" method='get' >
+					  				<button type="submit" class="btn btn-primary">Show </button>
+					  			</form>
+					  		</td>
+					  		<td>
+					  			<form action="/animals/<%=animals[animal].id%>/edit" method='get' >
+					  				<button type="submit" class="btn btn-warning">Edit </button>
+					  			</form>
+					  		</td>
+					  		<td>
+					  			<form action="/animals/<%=animals[animal].id%>/destory" method='post' >
+					  				<button type="submit" class="btn btn-danger">Delete</button>
+					  			</form>	
+				  			</td>
+				  		</tr>
+		  				<%}%>
+		  			<%}%>
+  					
+  				</tbody>
+  			</table>
+  		</div>
+	  	<a href="/animals/new"><button class="btn btn-default">Add a new animal</button></a>
+  	</div>
+  </body>
+ </html>

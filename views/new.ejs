@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quoting Dojo</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h2  class='text-center text-primary'>Animals</h2>
+        <h3 class='text-center text-warning'>Add a new animal</h3>
+        <p class="text-danger"><%if (typeof(title) != 'undefined' && typeof(errors) !='undefined') {%>
+          <%=title%>
+          <% for (var err in errors) {%>
+            <li class="text-danger"><%=errors[err]%></li>
+          <%}%>
+        <%}%>
+        </p>
+        <div>
+          <form  role="form" action="/animals" method="post">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" name='name' class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="weight">Weight:</label>
+              <input id="weight" type="number" name="weight" class="form-control"></input>
+            </div>
+            <div class="form-group">
+              <label for="color">Color:</label>
+              <input id="color" name="color" type="text" class="form-control"></input>
+            </div>
+            <button type="submit" class="btn btn-success">Add New Animal!</button>
+          </form>
+          
+          <div>
+          <a href="/"><button class="btn btn-warning">Back to Animals!</button></a>
+          </div>
+        </div>
+    </div>
+
+    </div>
+  </body>
+</html>
